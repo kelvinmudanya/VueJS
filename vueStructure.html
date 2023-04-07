@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name = "viewport" content="width=device-width" initial-scale="1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie-edge">
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <title>
+            Document
+        </title>
+
+    </head>
+    <body>
+        <div id = "app">
+            <!-- <p>{{greeting}} it is now: {{time}} </p>
+            <p>Is it true you have greeted us: {{isItTrue ? "yes": "no"}}</p>
+            <p>And What is your name:{{array[1]}}</p>
+            <p> And what car do you drive {{array[1]}}?</p>
+            <p>I drive a {{obj.car}} </p> -->
+            <!-- <p>{{func()}}</p> -->
+            <p>This is a method :{{welcome()}}</p>
+
+        </div>
+        
+    </body>
+    <script>
+        const date = new Date().toLocaleDateString()
+        const App ={
+            data(){
+                return{
+                    greeting:'Hello guys',
+                    time: new Date().toLocaleDateString(),
+                    isItTrue:false,
+                    array:['Dennis', 'Carol', 'Peter'],
+                    obj:{
+                        car :"Ferrari"
+                    },
+                    func:()=>{
+                        return 'Something'
+                        //return 'Her name is' + array[1] + "and she has greeted us by saying" + greeting + "at" +time +". She also said that she drives a" +obj.car
+
+                    }
+                }
+            },
+            methods:{
+                welcome(){
+                    //return 'Hello guys, this is a method'
+                    const randomName = this.array[Math.floor(Math.random() *this.array.length)]
+                    if(this.isItTrue){
+                        return `${this.greeting}, my name is ${randomName}`
+                    }
+                    return false
+
+                }
+                
+
+            }
+
+        }
+        Vue.createApp(App).mount('#app')
+    </script>
+
+
+</html>
