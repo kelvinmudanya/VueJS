@@ -11,8 +11,14 @@
     </head>
     <body>
         <div id = "app">
+            <img v-bind:src="src" v-bind:alt="alt"/>
+            <hr/>
+           <p> <a v-bind:href="link">Go to google</a></p>
+           <hr/>
+           <p v-text = "myText"></p>
+           <hr/>
+           <p v-html = "myHtml"></p>
 
-           <p> Working?</p>
         </div>
     </body>
     <script>
@@ -20,13 +26,15 @@
             data()
             {
                 return{
+                    src :'https://picsum.photos/200/300',
+                    alt : 'Another image',
+                    link : 'https://google.com',
+                    myText : 'I love you guys!!',
+                    myHtml : '<strong>Displaying html block<strong/>'
+
 
                 }
-            },
-            methods:{
-
             }
-
         }
         Vue.createApp(App).mount('#app')
     </script>

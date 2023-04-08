@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name = "viewport" content="width=device-width" initial-scale="1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie-edge">
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <title>
+            Document
+        </title>
+
+    </head>
+    <body>
+        <div id = "app">
+        
+       
+        <p v-if ="checkUser()"> This is {{user}} and he is allowed</p>
+        <p v-else-if="userAge>allowedAge"> You are not Francis but you are allowed</p>
+        <p v-else > "You are not allowed"</p>
+
+        <p v-show="checkUser()">Okay, you can watch</p>
+        <p v-show = "false"> No please! You are not allowed</p>
+
+           
+        </div>
+        
+    </body>
+    <script>
+        const date = new Date().toLocaleDateString()
+        const App ={
+            data(){
+                return{
+                    userAge :10,
+                    allowedAge : 20,
+                    user: 'Biko'
+                  
+                }
+            },
+            methods:{
+                checkUser(){
+                    return this.user ==='Francis' ? true :false
+                }
+            }
+        }
+                
+
+            
+
+        Vue.createApp(App).mount('#app')
+    </script>
+
+
+</html>
