@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name = "viewport" content="width=device-width" initial-scale="1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie-edge">
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <title>
+            Document
+        </title>
+
+    </head>
+    <body>
+        <div id = "app">
+            <!-- <ul>
+                <li
+                    v-for = "(name, index) in names">
+                    {{name}} do you want some pitzza! : {{ index }}
+                </li>
+            </ul>
+
+
+            <ul>
+                <li v-for = "(car, index) in cars">
+                {{car.name}} : {{car.colour}} : {{car.make}}
+            </li>
+            </ul>
+
+            <ul> -->
+                <li v-for = "(key, value, index) in user">
+                {{key}}, {{value}}, {{index}}
+                </li>
+            </ul>
+        
+        
+
+        </div>
+        
+    </body>
+    <script>
+        const date = new Date().toLocaleDateString()
+        const App ={
+            data(){
+                return{
+                    names:[
+                        'Wendy',
+                        'Juma',
+                        'Hezekiah',
+                        'Biko'
+                    ],
+                    user:{
+                        firstName : 'Syrus',
+                        lastName : 'Of Syrene',
+                        age : 27
+
+
+                    },
+                    cars:[
+                        {
+                            name : 'Ferrari',
+                            colour : 'yellow',
+                            make :2015
+                        },
+                        {
+                            name : 'Mercedes',
+                            colour : 'black',
+                            make :2019
+                        },
+                        {
+                            name : 'Subaru',
+                            colour : 'white',
+                            make :2012
+                        }
+                        
+
+                    ]
+
+                   
+                    }
+                
+            },
+            methods:{
+
+                
+
+                }
+                
+
+            }
+
+        
+        Vue.createApp(App).mount('#app')
+    </script>
+
+
+</html>

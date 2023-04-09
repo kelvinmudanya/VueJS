@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name = "viewport" content="width=device-width" initial-scale="1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie-edge">
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <title>
+            Document
+        </title>
+
+    </head>
+    <body>
+        <div id = "app">
+            <form v-on:submit.prevent="formhandler">
+                <label>FirstName: </label>
+                <!--trim removes the white spaces-->
+                <input type="text" v-model.trim="formData.firstName">
+                <hr/>
+                <label>LastName: </label>
+                <input type="text" v-model="formData.lastName">
+                <hr/>
+                <input type="text" v-model.number="formData.age">
+                <hr/>
+                <input type="checkbox" v-model="formData.checked">
+                <label>{{formData.checked}}</label>
+                <hr/>
+
+                <button type = "submit"> Submit </button>
+            </form>
+
+        </div>
+        
+    </body>
+    <script>
+        const date = new Date().toLocaleDateString()
+        const App ={
+            data(){
+                return{
+                    //recommend to put data properties inside an object
+                    formData:{
+                        firstName: 'Faith',
+                        lastName:'Ondisa',
+                        age:'5',
+                        checked: true
+                    }
+                   
+                }
+            },
+            methods:{
+                formhandler(){
+                    console.log(this.formData.firstName, '=firstName');
+                    console.log(this.formData.lastName, '=lastName');
+                    console.log(this.formData.age, '=age');
+                    console.log(this.formData.checked, '=checked');
+                }
+
+                }
+            }
+        Vue.createApp(App).mount('#app')
+    </script>
+
+
+</html>

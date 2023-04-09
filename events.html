@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name = "viewport" content="width=device-width" initial-scale="1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie-edge">
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <title>
+            Document
+        </title>
+
+    </head>
+    <body>
+        <div id = "app">
+            <p>{{name}}</p>
+            <div class = "box" v-on:click = "updateName">Click me!</div>
+            <div class = "hover" v-on:mousemove = "getCoordinates">
+                Hover!!
+
+                <p>x:{{x}}</p>
+                <p>y:{{y}}</p>
+            </div>
+
+        </div>
+        
+    </body>
+    <script>
+        const date = new Date().toLocaleDateString()
+        const App ={
+            data(){
+                return{
+                    name:'Francis',
+                    x:0,
+                    y:0
+                  
+                }
+            },
+            methods:{
+                updateName(){
+                    setTimeout(()=>{
+                        this.name = 'Steve Biko'
+
+                    },3000)
+                    
+               
+
+                },
+                getCoordinates(event){
+                    this.x = event.clientX;
+                    this.y = event.clientY;
+
+
+                }
+            }
+
+        }
+        Vue.createApp(App).mount('#app')
+    </script>
+    <style>
+        .box {
+            background: red;
+            width: fit-content;
+            height: fit-content;
+        }
+        .hover{
+            background: yellow;
+            width: 200px;
+            height: 300px;
+
+        }
+
+    </style>
+
+
+
+</html>
