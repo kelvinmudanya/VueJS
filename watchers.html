@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name = "viewport" content="width=device-width" initial-scale="1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie-edge">
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <title>
+            Document
+        </title>
+
+    </head>
+    <body>
+        <div id = "app">
+            <input type="text" v-model="user"/>
+            <button v-on:click = "toggleActive">click me</button>
+            <hr>
+            <div>Message: {{computedMessage}}</div>
+            <div>IsActive: {{computeActive}}</div>
+
+        </div>
+        
+    </body>
+    <script>
+        const date = new Date().toLocaleDateString()
+        const App ={
+            data(){
+                return{
+                    user: '',
+                    isActive : false
+                   
+                }
+            },
+            watch:{
+                isActive(){
+                    console.log("starting...")
+                    setTimeout(() =>{
+                        console.log("changed")
+                        this.isActive =! this.isActive;
+                    },1000)
+
+
+                }
+              
+
+            },
+            computed:{
+                computedMessage(){
+                    console.log("computeMessage")
+                    return this.user === 'Francis'? 'Welcome' : 'Not allowed'
+                    
+                },
+                computeActive(){
+                    console.log("Compute active")
+                    return this.isActive = this.isActive? false : true
+                    
+                }
+               
+
+
+            },
+            methods:{
+                toggleActive(){
+                    this.isActive = this.isActive?false:true
+                }
+                
+               
+
+                }
+                
+            }
+        Vue.createApp(App).mount('#app')
+    </script>
+
+
+</html>

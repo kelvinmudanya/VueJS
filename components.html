@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name = "viewport" content="width=device-width" initial-scale="1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie-edge">
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <title>
+            Document
+        </title>
+
+    </head>
+    <body>
+        <div id = "app">
+            <app-header></app-header>
+            <user-name></user-name>
+        
+
+        </div>
+        
+    </body>
+    <script>
+        const date = new Date().toLocaleDateString()
+       //Creation of a component
+       //Components are good for large systems
+        const app = Vue.createApp({});
+
+        app.component('app-header',{
+            data(){
+                return {
+                    heading: 'Now we are starting'
+                }
+            },
+            template:`<div>{{heading}}</div>`
+
+        });
+
+        app.component('user-name',{
+            data(){
+                return{
+                    name : 'Francis'
+                }
+            },
+            template:`<div>{{name}}</div>`
+        });
+
+        app.mount('#app');
+
+       
+    </script>
+
+
+</html>

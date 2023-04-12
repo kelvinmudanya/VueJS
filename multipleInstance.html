@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name = "viewport" content="width=device-width" initial-scale="1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie-edge">
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <title>
+            Document
+        </title>
+
+    </head>
+    <body>
+        <div id = "app1">
+            <p>{{value}}</p>
+            <button @click = "changeValue">change me</button>
+
+        </div>
+        <div id = "app2">
+            <button @ckick="sayHello">Hello</button>
+
+        </div>
+      
+        
+    </body>
+    <script>
+        let hello = 'Hey guys'
+        const date = new Date().toLocaleDateString()
+         
+        const app1 = Vue.createApp({
+            data(){
+                return {
+                    value : 'instance 1 working'
+                }
+            },
+            methods:{
+                changeValue(){
+                    console.log(app2.value)
+                   app1.value = app2.vale
+                }
+            }
+
+        },).mount('#app1');
+            
+        const app2 = 
+        Vue.createApp({
+            data(){
+                return {
+                    value : 'instance 2 working'
+                }
+            },
+            methods:{
+               sayHello(){
+                alert(hello)
+               }
+            }
+        },).mount('#app2');
+    </script>
+
+
+</html>
